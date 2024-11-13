@@ -10,7 +10,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "StoreIt",
+  title: "Storage",
   description: "StoreIt - The only storage solution you need.",
 };
 

@@ -12,7 +12,6 @@ const handleError = (error: unknown, message: string) => {
   console.log(error, message);
   throw error;
 };
-
 export const uploadFile = async ({
   file,
   ownerId,
@@ -40,6 +39,7 @@ export const uploadFile = async ({
       accountId,
       users: [],
       bucketFileId: bucketFile.$id,
+      bucketField: appwriteConfig.bucketId, // Added bucketField here
     };
 
     const newFile = await databases
@@ -60,6 +60,7 @@ export const uploadFile = async ({
     handleError(error, "Failed to upload file");
   }
 };
+
 
 const createQueries = (
   currentUser: Models.Document,
@@ -194,6 +195,7 @@ export const deleteFile = async ({
 };
 
 // ============================== TOTAL FILE SPACE USED
+
 export async function getTotalSpaceUsed() {
   try {
     const { databases } = await createSessionClient();
